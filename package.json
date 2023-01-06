@@ -1,5 +1,5 @@
 {
-  "name": "@stoffberg/create-t3svelte-app",
+  "name": "@stoffberg.dev/create-t3svelte-app",
   "version": "1.0.0",
   "description": "Rapidly setup T3 Stack with SvelteKit",
   "exports": "./dist/index.js",
