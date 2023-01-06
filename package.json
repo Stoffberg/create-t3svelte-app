@@ -21,9 +21,9 @@
     "format": "prettier --write --plugin-search-dir=. **/*.{cjs,mjs,ts,tsx,md,json} --ignore-path ../.gitignore",
     "format:check": "prettier --check --plugin-search-dir=. **/*.{cjs,mjs,ts,tsx,md,json} --ignore-path ../.gitignore",
     "release": "changeset version",
-    "pub:beta": "pnpm build && npm publish --tag beta",
-    "pub:next": "pnpm build && npm publish --tag next",
-    "pub:release": "pnpm build && npm publish"
+    "pub:beta": "pnpm build && pnpm publish --tag beta",
+    "pub:next": "pnpm build && pnpm publish --tag next",
+    "pub:release": "pnpm build && pnpm publish"
   },
   "keywords": [
     "cli",
