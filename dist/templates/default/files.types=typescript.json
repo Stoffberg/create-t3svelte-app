@@ -1,0 +1,14 @@
+[
+	{
+		"name": "src\\app.d.ts",
+		"contents": "// See https://kit.svelte.dev/docs/types#app\n// for information about these interfaces\n// and what to do when importing types\ndeclare namespace App {\n\t// interface Error {}\n\t// interface Locals {}\n\t// interface PageData {}\n\t// interface Platform {}\n}\n"
+	},
+	{
+		"name": "src\\routes\\+page.svelte",
+		"contents": "<h1>Welcome to SvelteKit</h1>\n<p>Visit <a href=\"https://kit.svelte.dev\">kit.svelte.dev</a> to read the documentation</p>\n"
+	},
+	{
+		"name": "vite.config.ts",
+		"contents": "import { sveltekit } from \"@sveltejs/kit/vite\";\nimport type { UserConfig } from \"vite\";\n\nconst config: UserConfig = {\n  plugins: [sveltekit()],\n};\n\nexport default config;\n"
+	}
+]

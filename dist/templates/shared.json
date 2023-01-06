@@ -1,0 +1,225 @@
+{
+	"files": [
+		{
+			"name": ".eslintrc.cjs",
+			"include": [
+				"eslint"
+			],
+			"exclude": [],
+			"contents": "module.exports = {\n  root: true,\n  parser: \"@typescript-eslint/parser\",\n  extends: [\"eslint:recommended\", \"plugin:@typescript-eslint/recommended\"],\n  plugins: [\"svelte3\", \"@typescript-eslint\"],\n  ignorePatterns: [\"*.cjs\"],\n  overrides: [{ files: [\"*.svelte\"], processor: \"svelte3/svelte3\" }],\n  settings: {\n    \"svelte3/typescript\": () => require(\"typescript\"),\n  },\n  parserOptions: {\n    sourceType: \"module\",\n    ecmaVersion: 2020,\n  },\n  env: {\n    browser: true,\n    es2017: true,\n    node: true,\n  },\n};\n"
+		},
+		{
+			"name": "package.json",
+			"include": [
+				"eslint"
+			],
+			"exclude": [],
+			"contents": "{\n  \"devDependencies\": {\n    \"@typescript-eslint/eslint-plugin\": \"^5.45.0\",\n    \"@typescript-eslint/parser\": \"^5.45.0\",\n    \"eslint\": \"^8.31.0\"\n  }\n}\n"
+		},
+		{
+			"name": ".prettierignore",
+			"include": [
+				"prettier"
+			],
+			"exclude": [],
+			"contents": ".DS_Store\nnode_modules\n/build\n/.svelte-kit\n/package\n.env\n.env.*\n!.env.example\n\n# Ignore files for PNPM, NPM and YARN\npnpm-lock.yaml\npackage-lock.json\nyarn.lock\n"
+		},
+		{
+			"name": ".prettierrc",
+			"include": [
+				"prettier"
+			],
+			"exclude": [],
+			"contents": "{\n\t\"useTabs\": true,\n\t\"singleQuote\": true,\n\t\"trailingComma\": \"none\",\n\t\"printWidth\": 100,\n\t\"plugins\": [\"prettier-plugin-svelte\"],\n\t\"pluginSearchDirs\": [\".\"],\n\t\"overrides\": [{ \"files\": \"*.svelte\", \"options\": { \"parser\": \"svelte\" } }]\n}\n"
+		},
+		{
+			"name": "package.json",
+			"include": [
+				"prettier"
+			],
+			"exclude": [],
+			"contents": "{\n\t\"devDependencies\": {\n\t\t\"prettier\": \"^2.8.0\",\n\t\t\"prettier-plugin-svelte\": \"^2.8.1\"\n\t}\n}\n"
+		},
+		{
+			"name": ".env",
+			"include": [
+				"prisma"
+			],
+			"exclude": [],
+			"contents": "# When adding additional env variables, the schema in /env/schema.mjs should be updated accordingly\r\n\r\n# Prisma\r\nDATABASE_URL=file:./db.sqlite\r\n"
+		},
+		{
+			"name": ".env.example",
+			"include": [
+				"prisma"
+			],
+			"exclude": [],
+			"contents": "# Since .env is gitignored, you can use .env.example to build a new `.env` file when you clone the repo.\r\n# Keep this file up-to-date when you add new variables to `.env`.\r\n\r\n# This file will be committed to version control, so make sure not to have any secrets in it.\r\n# If you are cloning this repo, create a copy of this file named `.env` and populate it with your secrets.\r\n\r\n# When adding additional env variables, the schema in /env/schema.mjs should be updated accordingly\r\n\r\n# Prisma\r\nDATABASE_URL=file:./db.sqlite\r\n"
+		},
+		{
+			"name": "package.json",
+			"include": [
+				"prisma"
+			],
+			"exclude": [],
+			"contents": "{\r\n  \"scripts\": {\r\n    \"studio\": \"prisma studio\",\r\n    \"db-push\": \"prisma db push\",\r\n    \"postinstall\": \"prisma generate\",\r\n    \"postbuild\": \"cp -R node_modules/@prisma/engines/* .vercel_build_output/functions/node/render/;cp prisma/schema.prisma .vercel_build_output/functions/node/render/\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"prisma\": \"^4.8.1\",\r\n    \"@prisma/client\": \"^4.8.1\"\r\n  }\r\n}\r\n"
+		},
+		{
+			"name": "prisma/schema.prisma",
+			"include": [
+				"prisma"
+			],
+			"exclude": [],
+			"contents": "// This is your Prisma schema file,\r\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\r\n\r\ngenerator client {\r\n  provider = \"prisma-client-js\"\r\n}\r\n\r\ndatasource db {\r\n  provider = \"sqlite\"\r\n  url      = env(\"DATABASE_URL\")\r\n}\r\n\r\nmodel Example {\r\n  id        String   @id @default(cuid())\r\n  createdAt DateTime @default(now())\r\n  updatedAt DateTime @updatedAt\r\n}\r\n"
+		},
+		{
+			"name": "src/lib/db/client.ts",
+			"include": [
+				"prisma"
+			],
+			"exclude": [],
+			"contents": "import { PrismaClient } from \"@prisma/client\";\r\nexport const prisma = new PrismaClient();\r\n"
+		},
+		{
+			"name": "package.json",
+			"include": [
+				"tailwind"
+			],
+			"exclude": [],
+			"contents": "{\r\n  \"devDependencies\": {\r\n    \"tailwindcss\": \"^3.2.4\",\r\n    \"postcss\": \"^8.4.20\",\r\n    \"autoprefixer\": \"^10.4.13\"\r\n  }\r\n}\r\n"
+		},
+		{
+			"name": "postcss.config.cjs",
+			"include": [
+				"tailwind"
+			],
+			"exclude": [],
+			"contents": "module.exports = {\n  plugins: {\n    tailwindcss: {},\n    autoprefixer: {},\n  },\n};\n"
+		},
+		{
+			"name": "src/app.css",
+			"include": [
+				"tailwind"
+			],
+			"exclude": [],
+			"contents": "@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n"
+		},
+		{
+			"name": "src/routes/+layout.svelte",
+			"include": [
+				"tailwind"
+			],
+			"exclude": [],
+			"contents": "<script>\r\n\timport '../app.css';\r\n</script>\r\n\r\n<slot />\r\n"
+		},
+		{
+			"name": "tailwind.config.cjs",
+			"include": [
+				"tailwind"
+			],
+			"exclude": [],
+			"contents": "/** @type {import('tailwindcss').Config} */\r\nmodule.exports = {\r\n  content: [\"./src/**/*.{html,js,svelte,ts}\"],\r\n  theme: {\r\n    extend: {},\r\n  },\r\n  plugins: [],\r\n};\r\n"
+		},
+		{
+			"name": "package.json",
+			"include": [
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "{\r\n  \"dependencies\": {\r\n    \"@trpc/client\": \"^10.8.1\",\r\n    \"@trpc/server\": \"^10.8.1\",\r\n    \"trpc-sveltekit\": \"^3.2.3\",\r\n    \"zod\": \"^3.20.2\"\r\n  }\r\n}\r\n"
+		},
+		{
+			"name": "src/hooks.server.ts",
+			"include": [
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "import type { Handle } from \"@sveltejs/kit\";\r\n\r\nimport { createContext } from \"$lib/trpc/context\";\r\nimport { appRouter } from \"$lib/trpc/routes\";\r\nimport { createTRPCHandle } from \"trpc-sveltekit\";\r\n\r\nexport const handle: Handle = createTRPCHandle({ router: appRouter, createContext });\r\n"
+		},
+		{
+			"name": "src/lib/trpc/client.ts",
+			"include": [
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "import type { AppRouter } from \"$lib/trpc/routes\";\r\nimport { createTRPCClient, type TRPCClientInit } from \"trpc-sveltekit\";\r\nimport superjson from \"superjson\";\r\n\r\nlet browserClient: ReturnType<typeof createTRPCClient<AppRouter>>;\r\n\r\nexport const trpc = (init?: TRPCClientInit) => {\r\n  if (typeof window === \"undefined\") return createTRPCClient<AppRouter>({ init, transformer: superjson });\r\n  if (!browserClient) browserClient = createTRPCClient<AppRouter>({ transformer: superjson });\r\n  return browserClient;\r\n};\r\n"
+		},
+		{
+			"name": "src/lib/trpc/context.ts",
+			"include": [
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "import type { RequestEvent } from \"@sveltejs/kit\";\r\nimport type { inferAsyncReturnType } from \"@trpc/server\";\r\n\r\n// we're not using the event parameter is this example,\r\n// hence the eslint-disable rule\r\n// eslint-disable-next-line @typescript-eslint/no-unused-vars\r\nexport async function createContext(event: RequestEvent) {\r\n  return {\r\n    // context information\r\n  };\r\n}\r\n\r\nexport type Context = inferAsyncReturnType<typeof createContext>;\r\n"
+		},
+		{
+			"name": "src/lib/trpc/router.ts",
+			"include": [
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "import type { Context } from \"$lib/trpc/context\";\r\n\r\nimport { initTRPC } from \"@trpc/server\";\r\nimport superjson from \"superjson\";\r\n\r\nconst t = initTRPC.context<Context>().create({\r\n  transformer: superjson,\r\n  errorFormatter({ shape }) {\r\n    return shape;\r\n  },\r\n});\r\n\r\nexport const router = t.router;\r\nexport const publicProcedure = t.procedure;\r\n"
+		},
+		{
+			"name": "src/lib/trpc/routes/example.ts",
+			"include": [
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "import { z } from \"zod\";\r\nimport { router, publicProcedure } from \"$lib/trpc/router\";\r\n\r\nexport const exampleRouter = router({\r\n  hello: publicProcedure.input(z.object({ text: z.string().nullish() }).nullish()).query(({ input }) => {\r\n    return `Hello ${input?.text ?? \"from tRPC\"}`;\r\n  }),\r\n});\r\n"
+		},
+		{
+			"name": "src/lib/trpc/routes/index.ts",
+			"include": [
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "import { router } from \"$lib/trpc/router\";\r\nimport { exampleRouter } from \"$lib/trpc/routes/example\";\r\n\r\nexport const appRouter = router({\r\n  example: exampleRouter,\r\n});\r\n\r\n// export type definition of API\r\nexport type AppRouter = typeof appRouter;\r\n"
+		},
+		{
+			"name": "src/routes/+page.svelte",
+			"include": [
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "<script lang=\"ts\">\r\n  import { page } from \"$app/stores\";\r\n  import { trpc } from \"$lib/trpc/client\";\r\n\r\n  const pageData = [\r\n    {\r\n      title: \"Prisma\",\r\n      description: \"Prisma unlocks a new level of developer experience when working with databases\",\r\n      link: \"https://www.prisma.io/\",\r\n    },\r\n    {\r\n      title: \"TailwindCSS\",\r\n      description: \"A utility-first CSS framework for rapidly building custom designs\",\r\n      link: \"https://tailwindcss.com/\",\r\n    },\r\n    {\r\n      title: \"tRPC\",\r\n      description: \"End-to-end typesafe APIs for quickly building fullstack apps\",\r\n      link: \"https://trpc.io/\",\r\n    },\r\n    {\r\n      title: \"Vite\",\r\n      description: \"Next generation frontend tooling built on esbuild. It's really fast!\",\r\n      link: \"https://vitejs.dev/\",\r\n    },\r\n    {\r\n      title: \"SvelteKit\",\r\n      description: \"A svelte based fullstack framework for building web apps\",\r\n      link: \"https://kit.svelte.dev/\",\r\n    },\r\n    {\r\n      title: \"TypeScript\",\r\n      description: \"TypeScript is the core language of the package and is not optional\",\r\n      link: \"https://www.typescriptlang.org/\",\r\n    },\r\n  ];\r\n</script>\r\n\r\n<main class=\"absolute inset-0 flex flex-col items-center justify-center bg-[#0A071B] text-white\">\r\n  <h1 class=\"text-6xl font-bold mb-2\">Create-T3Svelte-App</h1>\r\n  {#await trpc($page).example.hello.query()}\r\n    <p class=\"mb-10 text-lg\">Loading...</p>\r\n  {:then greeting}\r\n    <p class=\"mb-10 text-lg\">{greeting}</p>\r\n  {/await}\r\n  <section class=\"grid sm:grid-cols-2 lg:grid-cols-3 max-w-6xl gap-6\">\r\n    {#each pageData as { title, description, link }}\r\n      <a class=\"flex flex-col border-[#27233b] border rounded-lg overflow-hidden\" href={link}>\r\n        <h2 class=\"text-2xl font-semibold py-2 px-4 text-center bg-[#2A263F]\">{title}</h2>\r\n        <p class=\"text-[#72749C] p-4 bg-[#141125] grow text-center\">{description}</p>\r\n      </a>\r\n    {/each}\r\n  </section>\r\n</main>\r\n"
+		},
+		{
+			"name": ".eslintrc.cjs",
+			"include": [
+				"eslint",
+				"prettier"
+			],
+			"exclude": [],
+			"contents": "module.exports = {\n  root: true,\n  parser: \"@typescript-eslint/parser\",\n  extends: [\"eslint:recommended\", \"plugin:@typescript-eslint/recommended\", \"prettier\"],\n  plugins: [\"svelte3\", \"@typescript-eslint\"],\n  ignorePatterns: [\"*.cjs\"],\n  overrides: [{ files: [\"*.svelte\"], processor: \"svelte3/svelte3\" }],\n  settings: {\n    \"svelte3/typescript\": () => require(\"typescript\"),\n  },\n  parserOptions: {\n    sourceType: \"module\",\n    ecmaVersion: 2020,\n  },\n  env: {\n    browser: true,\n    es2017: true,\n    node: true,\n  },\n};\n"
+		},
+		{
+			"name": "src/lib/trpc/context.ts",
+			"include": [
+				"prisma",
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "import type { RequestEvent } from \"@sveltejs/kit\";\r\nimport type { inferAsyncReturnType } from \"@trpc/server\";\r\n\r\nimport { prisma } from \"$lib/db/client\";\r\n\r\n// we're not using the event parameter is this example,\r\n// hence the eslint-disable rule\r\n// eslint-disable-next-line @typescript-eslint/no-unused-vars\r\nexport async function createContext(event: RequestEvent) {\r\n  return {\r\n    prisma,\r\n  };\r\n}\r\n\r\nexport type Context = inferAsyncReturnType<typeof createContext>;\r\n"
+		},
+		{
+			"name": "src/lib/trpc/routes/example.ts",
+			"include": [
+				"prisma",
+				"trpc"
+			],
+			"exclude": [],
+			"contents": "import { z } from \"zod\";\r\nimport { router, publicProcedure } from \"$lib/trpc/router\";\r\n\r\nexport const exampleRouter = router({\r\n  hello: publicProcedure.input(z.object({ text: z.string().nullish() }).nullish()).query(({ input }) => {\r\n    return `Hello ${input?.text ?? \"from tRPC\"}`;\r\n  }),\r\n  getAll: publicProcedure.query(({ ctx }) => {\r\n    return ctx.prisma.example.findMany();\r\n  }),\r\n});\r\n"
+		},
+		{
+			"name": "package.json",
+			"include": [
+				"prettier"
+			],
+			"exclude": [
+				"eslint"
+			],
+			"contents": "{\n  \"scripts\": {\n    \"lint\": \"prettier --plugin-search-dir . --check .\",\n    \"format\": \"prettier --plugin-search-dir . --write .\"\n  }\n}\n"
+		}
+	]
+}

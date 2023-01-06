@@ -1,6 +1,6 @@
 {
   "name": "create-t3svelte-app",
-  "version": "1.1.3",
+  "version": "2.0.0-beta.1",
   "description": "Rapidly setup T3 Stack with SvelteKit",
   "exports": "./dist/index.js",
   "bin": {
@@ -13,6 +13,7 @@
   "scripts": {
     "typecheck": "tsc",
     "build": "tsup",
+    "compile": "tsup & node dist/build.cjs",
     "dev": "tsup --watch",
     "clean": "rm -rf dist .turbo node_modules",
     "start": "node dist/index.js",
@@ -28,25 +29,43 @@
     "cli",
     "create-t3svelte-app"
   ],
-  "author": "Zach Hopkins",
+  "author": "Dirk Stoffberg Beukes",
+  "contributors": [
+    {
+      "name": "Dirk Stoffberg Beukes",
+      "email": "dirk_beukes@hotmail.com",
+      "url": "https://stoffberg.dev"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
-    "arg": "^5.0.2",
-    "chalk": "^5.2.0",
-    "execa": "^6.1.0",
-    "fs-extra": "^11.1.0",
-    "inquirer": "^9.1.4",
-    "listr": "^0.14.3",
-    "pkg-install": "^1.0.0"
+    "kleur": "^4.1.5",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "@types/inquirer": "^9.0.3",
-    "@types/listr": "^0.14.4",
+    "@prisma/client": "^4.8.1",
+    "@sveltejs/adapter-auto": "^1.0.0",
+    "@sveltejs/kit": "^1.0.5",
+    "@trpc/client": "^10.8.1",
+    "@trpc/server": "^10.8.1",
+    "@types/gitignore-parser": "^0.0.0",
+    "@types/prettier": "^2.7.2",
+    "@types/prompts": "^2.4.1",
     "@typescript-eslint/parser": "^5.48.0",
+    "autoprefixer": "^10.4.13",
     "eslint": "^8.31.0",
+    "gitignore-parser": "^0.0.2",
+    "postcss": "^8.4.20",
     "prettier": "^2.8.1",
+    "sucrase": "^3.29.0",
+    "superjson": "^1.12.1",
+    "svelte": "^3.55.0",
+    "tailwindcss": "^3.2.4",
+    "tiny-glob": "^0.2.9",
+    "trpc-sveltekit": "^3.2.3",
     "tsup": "^6.5.0",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "zod": "^3.20.2"
   }
 }
