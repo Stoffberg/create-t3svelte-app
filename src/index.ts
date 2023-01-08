@@ -16,7 +16,7 @@ function write_template_files(template: string, name: string, cwd: string) {
   copy(`${dir}/assets`, cwd, (name) => name.replace("DOT-", "."));
   copy(`${dir}/package.json`, `${cwd}/package.json`);
 
-  const manifest = `${dir}\\files.types=typescript.json`;
+  const manifest = `${dir}/files.types=typescript.json`;
   const files: File[] = JSON.parse(fs.readFileSync(manifest, "utf-8"));
 
   files.forEach((file) => {
