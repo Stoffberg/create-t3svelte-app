@@ -337,7 +337,7 @@
 				"trpc"
 			],
 			"exclude": [],
-			"contents": "import type { RequestEvent } from \"@sveltejs/kit\";\r\nimport { type inferAsyncReturnType } from \"@trpc/server\";\r\n\r\nimport { prisma } from \"$lib/server/db\";\r\nimport { t } from \"./trpc\";\r\n\r\nexport const createContext = async (event: RequestEvent) => {\r\n  return {\r\n    prisma,\r\n  };\r\n};\r\n\r\nexport type Context = inferAsyncReturnType<typeof createContext>;\r\n"
+			"contents": "import type { RequestEvent } from \"@sveltejs/kit\";\r\nimport type { inferAsyncReturnType } from \"@trpc/server\";\r\n\r\nimport { prisma } from \"$lib/server/db\";\r\n\r\nexport const createContext = async (event: RequestEvent) => {\r\n  return {\r\n    prisma,\r\n  };\r\n};\r\n\r\nexport type Context = inferAsyncReturnType<typeof createContext>;\r\n"
 		},
 		{
 			"name": "src/lib/server/api/routers/example.ts",
