@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import { trpc } from "$lib/trpc/client";
+  import { api } from "$lib/api";
 
   const pageData = [
     {
@@ -38,7 +38,7 @@
 
 <main class="absolute inset-0 flex flex-col items-center justify-center bg-[#0A071B] text-white">
   <h1 class="text-6xl font-bold mb-2">Create-T3Svelte-App</h1>
-  {#await trpc($page).example.hello.query()}
+  {#await api($page).example.hello.query()}
     <p class="mb-10 text-lg">Loading...</p>
   {:then greeting}
     <p class="mb-10 text-lg">{greeting}</p>

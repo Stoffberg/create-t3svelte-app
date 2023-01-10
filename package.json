@@ -1,6 +1,6 @@
 {
   "name": "@stoffberg.dev/create-t3svelte-app",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Rapidly setup T3 Stack with SvelteKit",
   "exports": "./dist/index.js",
   "bin": {
@@ -43,6 +43,8 @@
     "prompts": "^2.4.2"
   },
   "devDependencies": {
+    "@auth/core": "^0.2.5",
+    "@auth/sveltekit": "^0.1.12",
     "@prisma/client": "^4.8.1",
     "@sveltejs/adapter-auto": "^1.0.0",
     "@sveltejs/kit": "^1.0.5",

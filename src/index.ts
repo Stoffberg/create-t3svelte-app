@@ -69,7 +69,7 @@ const matches_condition = (condition: Condition, options: Options) => {
   if (condition === "eslint" || condition === "prettier") {
     return options.addons.includes(condition);
   }
-  if (condition === "prisma" || condition === "trpc" || condition === "tailwind") {
+  if (condition === "prisma" || condition === "trpc" || condition === "tailwind" || condition === "auth") {
     return options.packages.includes(condition);
   }
   return options[condition];

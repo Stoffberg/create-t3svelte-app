@@ -52,7 +52,7 @@ const main = async () => {
   type Answers = {
     template: Options["template"];
     addons: Array<"eslint" | "prettier">;
-    packages: Array<"prisma" | "trpc">;
+    packages: Array<"prisma" | "trpc" | "tailwind" | "auth">;
   };
 
   const answers: Answers = await prompts(
@@ -82,6 +82,7 @@ const main = async () => {
           { title: "tRPC", value: "trpc", selected: true },
           { title: "Prisma", value: "prisma", selected: true },
           { title: "Tailwind", value: "tailwind", selected: true },
+          { title: "Auth", value: "auth", selected: true },
         ],
       },
       {
@@ -130,6 +131,11 @@ const main = async () => {
     console.log(cyan("  https://tailwindcss.com/docs"));
   }
 
+  if (options.packages.includes("auth")) {
+    console.log(bold("✔ Auth"));
+    console.log(cyan("  https://authjs.dev/"));
+  }
+
   if (options.addons.includes("eslint")) {
     console.log(bold("✔ ESLint"));
     console.log(cyan("  https://eslint.org/docs/latest"));
@@ -152,6 +158,7 @@ const main = async () => {
   if (options.packages.includes("prisma")) {
     console.log(`  ${i++}: ${bold(cyan(`${packageManager} run db-push`))} (optional - sync a database schema)`);
   }
+  console.log(`  ${i++}: ${bold(cyan(`${packageManager} run sync`))} (optional - sync the enviroment variables)`);
   console.log(`  ${i++}: ${bold(cyan(`${packageManager} run dev`))}`);
 
   console.log(`\nTo close the dev server, hit ${bold(cyan("Ctrl-C"))}`);

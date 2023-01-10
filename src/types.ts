@@ -2,7 +2,7 @@ export type Options = {
   name: string;
   template: "default";
   addons: Array<"eslint" | "prettier">;
-  packages: Array<"prisma" | "trpc" | "tailwind">;
+  packages: Array<"prisma" | "trpc" | "tailwind" | "auth">;
 };
 
 export type File = {
@@ -19,4 +19,4 @@ export type Common = {
   }>;
 };
 
-export type Condition = "eslint" | "prettier" | "default" | "prisma" | "trpc" | "tailwind";
+export type Condition = "eslint" | "prettier" | "default" | "prisma" | "trpc" | "tailwind" | "auth";

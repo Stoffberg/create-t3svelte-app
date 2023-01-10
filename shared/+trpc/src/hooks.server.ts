@@ -1,7 +1,8 @@
 import type { Handle } from "@sveltejs/kit";
 
-import { createContext } from "$lib/trpc/context";
-import { appRouter } from "$lib/trpc/routes";
+// Imports for tRPC
+import { createContext } from "$lib/server/api/context";
+import { appRouter } from "$lib/server/api/root";
 import { createTRPCHandle } from "trpc-sveltekit";
 
 export const handle: Handle = createTRPCHandle({ router: appRouter, createContext });

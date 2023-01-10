@@ -9,6 +9,6 @@
 	},
 	{
 		"name": "vite.config.ts",
-		"contents": "import { sveltekit } from \"@sveltejs/kit/vite\";\nimport type { UserConfig } from \"vite\";\n\nconst config: UserConfig = {\n  plugins: [sveltekit()],\n};\n\nexport default config;\n"
+		"contents": "import { sveltekit } from \"@sveltejs/kit/vite\";\nimport type { UserConfig } from \"vite\";\n\nconst config: UserConfig = {\n  plugins: [sveltekit()],\n  server: {\n    port: 3000,\n  },\n};\n\nexport default config;\n"
 	}
 ]
