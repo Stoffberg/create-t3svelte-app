@@ -158,7 +158,7 @@ const main = async () => {
   if (options.packages.includes("prisma")) {
     console.log(`  ${i++}: ${bold(cyan(`${packageManager} run db-push`))} (optional - sync a database schema)`);
   }
-  console.log(`  ${i++}: ${bold(cyan(`${packageManager} run sync`))} (optional - sync the enviroment variables)`);
+  console.log(`  ${i++}: ${bold(cyan(`${packageManager} run check`))}`);
   console.log(`  ${i++}: ${bold(cyan(`${packageManager} run dev`))}`);
 
   console.log(`\nTo close the dev server, hit ${bold(cyan("Ctrl-C"))}`);
